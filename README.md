@@ -1,5 +1,3 @@
----
-
 # ♻️ E-Waste Component Detection using YOLOv26n
 
 This repository documents my learning journey in **Computer Vision** and **YOLO-based object detection**.
