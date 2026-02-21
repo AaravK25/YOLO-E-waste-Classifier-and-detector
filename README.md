@@ -88,7 +88,7 @@ Inference Speed:
 
 ## 📉 Training Curves
 
-<img src="images/training_metrics.png" width="100%">
+<img src="runs/detect/train3/results.png" width="100%">
 
 *(Losses decreasing steadily and mAP stabilizing around 0.64 mAP50-95)*
 
