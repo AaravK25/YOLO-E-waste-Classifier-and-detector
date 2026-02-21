@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import multiprocessing
 from multiprocessing import freeze_support
 
-model = YOLO("D:/Codes/YOLO-E-waste-Classifier-and-detector/runs/detect/train3/weights/last.pt")  
+model = YOLO("D:/Codes/YOLO-E-waste-Classifier-and-detector/runs/detect/train5/weights/last.pt")  
 
 def train():
 
