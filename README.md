@@ -1,7 +1,3 @@
-Here is your **clean, professional, and GitHub-ready README.md** formatted properly with sections, tables, and embedded images.
-
-You can copy-paste this directly into your `README.md`.
-
 ---
 
 # ♻️ E-Waste Component Detection using YOLOv26n
