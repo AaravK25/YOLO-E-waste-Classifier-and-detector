@@ -102,7 +102,7 @@ Validation set: **728 images | 730 instances**
 
 ## 📊 Confusion Matrix
 
-<img src="runs/detect/train3/confusion_matrix_normalized.png" width="100%">
+<img src="runs/detect/train5/confusion_matrix_normalized.png" width="50%">
 
 *Strong diagonal dominance indicating good per-class separation.*
 
