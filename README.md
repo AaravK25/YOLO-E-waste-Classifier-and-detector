@@ -188,8 +188,3 @@ This project is part of my deep dive into:
 
 If you're reading this — feedback is welcome.
 This is a continuous learning project.
-
----
-
-
-Tell me what level you want — clean, advanced, or elite.
