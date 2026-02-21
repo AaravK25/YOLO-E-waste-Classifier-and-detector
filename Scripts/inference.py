@@ -1,17 +1,7 @@
-# from ultralytics import solutions
-
-# inf = solutions.Inference(
-#     model="runs/detect/train3/weights/best.pt",  # you can use any model that Ultralytics supports, e.g., YOLO26, or a custom-trained model
-# )
-
-# inf.inference()
-
-# # YOU MUST RUN THE FILE using command `streamlit run path/to/file.py`
-
 from ultralytics import YOLO
 import cv2 as cv
 
-model = YOLO("yolov26n.pt")
+model = YOLO("runs/detect/train5/weights/best.pt")
 
 cap = cv.VideoCapture(0)
 
