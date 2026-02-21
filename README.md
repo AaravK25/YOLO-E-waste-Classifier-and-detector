@@ -153,7 +153,7 @@ These require more data for reliable learning.
 
 ---
 
-## 🛠️ How to Run For Inference
+## 🛠️ How to Train
 
 ```bash
 pip install ultralytics
@@ -162,7 +162,7 @@ pip install ultralytics
 ```python
 from ultralytics import YOLO
 
-model = YOLO("Best.pt")
+model = YOLO("YOLOv26n.pt")
 
 model.train(
     data="data.yaml",
