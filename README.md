@@ -42,8 +42,7 @@ https://www.kaggle.com/datasets/shafin808s/ewaste-yolo
 ### Preprocessing
 
 * ✅ Auto-Orient applied
-* ✅ Resize: `512x512`
-* ✅ Fill with center crop
+* ✅ Resize: `640x640` (Stretch)
 
 ### Augmentations (3 outputs per training image)
 
