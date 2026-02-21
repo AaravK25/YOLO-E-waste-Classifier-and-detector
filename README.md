@@ -23,6 +23,10 @@ using **YOLOv26n (Ultralytics)**.
 
 ## 📊 Dataset Details
 
+### Dataset Used
+
+https://www.kaggle.com/datasets/shafin808s/ewaste-yolo
+
 ### Dataset Split
 
 | Set   | Percentage | Images |
