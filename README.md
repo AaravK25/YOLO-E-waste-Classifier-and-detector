@@ -25,7 +25,7 @@ using **YOLOv26n (Ultralytics)**.
 
 ### Dataset Used
 
-https://www.kaggle.com/datasets/shafin808s/ewaste-yolo
+[https://www.kaggle.com/datasets/shafin808s/ewaste-yolo](https://www.kaggle.com/datasets/shafin808s/ewaste-yolo)
 
 ### Dataset Split
 
@@ -57,35 +57,38 @@ https://www.kaggle.com/datasets/shafin808s/ewaste-yolo
 ## 🧠 Model Summary
 
 ```
-YOLOv26n (fused)
+YOLO26n (fused)
 Layers: 122  
 Parameters: 2,389,850  
-GFLOPs: 5.3  
+GFLOPs: 5.3
 ```
 
 **Environment:**
 
+* Ultralytics 8.4.14
 * Python 3.10.19
 * torch 2.11.0.dev20260209+cu128
 * CUDA 12.8
-* GPU: RTX 3050 Laptop GPU (4096 MiB)
+* GPU: NVIDIA GeForce RTX 3050 Laptop GPU (4096 MiB)
 
 ---
 
 ## 📈 Overall Validation Performance
 
+Validation set: **728 images | 730 instances**
+
 | Metric    | Value     |
 | --------- | --------- |
-| Precision | 0.681     |
-| Recall    | 0.763     |
-| mAP@50    | 0.752     |
-| mAP@50-95 | **0.641** |
+| Precision | 0.643     |
+| Recall    | 0.769     |
+| mAP@50    | 0.757     |
+| mAP@50-95 | **0.653** |
 
-Inference Speed:
+### ⚡ Inference Speed (per image)
 
-* ⚡ 0.3ms preprocess
-* ⚡ 2.3ms inference
-* ⚡ 0.2ms postprocess
+* 0.4 ms preprocess
+* 3.3 ms inference
+* 0.3 ms postprocess
 
 ---
 
@@ -93,7 +96,7 @@ Inference Speed:
 
 <img src="runs/detect/train3/results.png" width="100%">
 
-*(Losses decreasing steadily and mAP stabilizing around 0.64 mAP50-95)*
+*(Loss decreased steadily with final stabilization around ~0.65 mAP50-95)*
 
 ---
 
@@ -107,52 +110,62 @@ Inference Speed:
 
 ## 🏆 Strong Performing Classes (mAP50-95 ≥ 0.85)
 
-* HardDiskDrive_Repairable (0.908)
-* LCDScreen_Repairable (0.945)
-* LVDSCable_Repairable (0.854)
-* Processor_Repairable (0.854)
-* RAMCover_Repairable (0.862)
-* RAM_Reusable (0.878)
-* SSD_Recyclable (0.894)
-* SSD_Reusable (0.872)
-* TouchPad_Recyclable (0.837)
-* HeatSink_Recyclable (0.87)
+* HeatSink_Recyclable (0.899)
+* HeatSink_Reusable (0.861)
+* HardDiskDrive_Repairable (0.874)
+* LCDScreen_Repairable (0.900)
+* LCDScreen_Reusable (0.857)
+* LVDSCable_Repairable (0.899)
+* Motherboard_Recyclable (0.897)
+* RAMCover_Repairable (0.853)
+* RAMCover_Reusable (0.852)
+* RAM_Reusable (0.871)
+* SSD_Reusable (0.883)
+* TopPanel_Reusable (0.806 → near strong)
+* TouchPad_Reusable (0.849 → near strong)
 
 ---
 
 ## ⚠️ Low Performing Classes (Data Scarcity Issue)
 
-Some classes have very low image counts (1–3 images), which caused instability:
+Some classes have very low image counts (1–3 images), causing unstable metrics:
 
-* Keyboard_Recyclable
-* WebCam_Recyclable
-* CPUFan_Reusable
-* Motherboard_Repairable
-* SSD_Repairable
+* Keyboard_Recyclable (0.00)
+* WebCam_Recyclable (0.00)
+* CPUFan_Reusable (only 1 image)
+* Motherboard_Repairable (1 image)
+* SSD_Repairable (1 image)
+* RAM_Repairable (2 images)
+* HardDiskDrive_Reusable (2 images)
 
-These require more data for reliable learning.
+These clearly require more samples for stable learning.
 
 ---
 
 ## 🚀 Key Observations
 
 * Model converges cleanly without instability.
-* Precision and Recall are well balanced.
-* Strong performance considering:
+* Recall (0.769) is stronger than Precision (0.643) → model favors detection sensitivity slightly.
+* Achieving **0.653 mAP50-95** with:
 
   * 4GB VRAM constraint
   * 50+ fine-grained classes
-* Small class imbalance affects minority categories.
+  * Heavy class imbalance
+
+is a strong result for a nano model.
+
+* Performance heavily correlates with per-class data availability.
 
 ---
 
 ## 🔮 Future Improvements
 
 * Add more samples for low-frequency classes.
-* Try larger models (YOLOv26s / YOLOv26m).
+* Try larger variants (YOLOv26s / YOLOv26m).
 * Apply class-balanced sampling.
-* Experiment with longer training.
-* Tune augmentation intensity.
+* Increase training epochs.
+* Tune augmentation strength.
+* Try weighted loss for minority classes.
 
 ---
 
@@ -169,7 +182,7 @@ model = YOLO("YOLOv26n.pt")
 
 model.train(
     data="data.yaml",
-    imgsz=512,
+    imgsz=640,
     epochs=100,
     batch=16
 )
