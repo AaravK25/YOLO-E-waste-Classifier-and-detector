@@ -94,7 +94,7 @@ Validation set: **728 images | 730 instances**
 
 ## 📉 Training Curves
 
-<img src="runs/detect/train3/results.png" width="100%">
+<img src="runs/detect/train5/results.png" width="75%">
 
 *(Loss decreased steadily with final stabilization around ~0.65 mAP50-95)*
 
