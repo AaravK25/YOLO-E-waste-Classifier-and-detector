@@ -2,11 +2,11 @@ from ultralytics import YOLO
 import multiprocessing
 from multiprocessing import freeze_support
 
-model = YOLO("yolo26n.pt")  
+model = YOLO("D:/Codes/YOLO-E-waste-Classifier-and-detector/runs/detect/train3/weights/last.pt")  
 
 def train():
 
-    results = model.train(data="D:/Datasets/E-waste-Detect-modified-yolo26/data.yaml", epochs=100, imgsz=512, device='cuda')
+    results = model.train(resume=True)
     return "Model Trained Successfully" , results
 
 if __name__ == "__main__":
