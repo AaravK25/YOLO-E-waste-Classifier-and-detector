@@ -96,7 +96,7 @@ Inference Speed:
 
 ## 📊 Confusion Matrix
 
-<img src="images/confusion_matrix.png" width="100%">
+<img src="runs/detect/train3/confusion_matrix_normalized.png" width="100%">
 
 *Strong diagonal dominance indicating good per-class separation.*
 
